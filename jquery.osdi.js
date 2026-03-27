@@ -159,18 +159,18 @@
 				//console.log(this.settings.add_tags);
 				//console.log(this.settings.add_tags.length);
 				//console.log(this.settings.add_tags);
-				//console.log(!$.isArray(this.settings.add_tags));
+				//console.log(!Array.isArray(this.settings.add_tags));
 				//console.log(this.settings.add_tags.length <= 0);
 				if (this.settings.add_tags) {
 					if (typeof(this.settings.add_tags) == 'function') {
-						if (!$.isArray(this.settings.add_tags()) || !this.settings.add_tags().length > 0) {
+						if (!Array.isArray(this.settings.add_tags()) || !this.settings.add_tags().length > 0) {
 							console.log('JQUERY OSDI ERROR: The add_tags option is not a valid array of at least one element. You must pass an array with at least one element to the jQuery OSDI plugin to add tags.');
 							return false;
 						} else {
 							return true;
 						}
 					} else {
-						if (!$.isArray(this.settings.add_tags) || !this.settings.add_tags.length > 0) {
+						if (!Array.isArray(this.settings.add_tags) || !this.settings.add_tags.length > 0) {
 							console.log('JQUERY OSDI ERROR: The add_tags option is not a valid array of at least one element. You must pass an array with at least one element to the jQuery OSDI plugin to add tags.');
 							return false;
 						} else {
@@ -243,15 +243,15 @@
 					}
 					
 					if ($element.find(':input[name="family_name"]').length && $element.find(':input[name="family_name"]').val()) {
-						body.person.family_name = $.isArray($element.find(':input[name="family_name"]').val()) ? $element.find(':input[name="family_name"]').val().pop() : $element.find(':input[name="family_name"]').val();
+						body.person.family_name = Array.isArray($element.find(':input[name="family_name"]').val()) ? $element.find(':input[name="family_name"]').val().pop() : $element.find(':input[name="family_name"]').val();
 					}
 					
 					if ($element.find(':input[name="given_name"]').length && $element.find(':input[name="given_name"]').val()) {
-						body.person.given_name = $.isArray($element.find(':input[name="given_name"]').val()) ? $element.find(':input[name="given_name"]').val().pop() : $element.find(':input[name="given_name"]').val();
+						body.person.given_name = Array.isArray($element.find(':input[name="given_name"]').val()) ? $element.find(':input[name="given_name"]').val().pop() : $element.find(':input[name="given_name"]').val();
 					}
 					
 					if ($element.find(':input[name="email_address"]').length && $element.find(':input[name="email_address"]').val()) {
-						var email_address_string = $.isArray($element.find(':input[name="email_address"]').val()) ? $element.find(':input[name="email_address"]').val().pop() : $element.find(':input[name="email_address"]').val();
+						var email_address_string = Array.isArray($element.find(':input[name="email_address"]').val()) ? $element.find(':input[name="email_address"]').val().pop() : $element.find(':input[name="email_address"]').val();
 						
 						email_address = {
 							"email_addresses" : [ 
@@ -286,24 +286,24 @@
 						
 						if ($element.find(':input[name="street"]').length && $element.find(':input[name="street"]').val()) {
 							postal_address.address_lines = [
-								$.isArray($element.find(':input[name="street"]').val()) ? $element.find(':input[name="street"]').val().pop() : $element.find(':input[name="street"]').val()
+								Array.isArray($element.find(':input[name="street"]').val()) ? $element.find(':input[name="street"]').val().pop() : $element.find(':input[name="street"]').val()
 							];
 						}
 						
 						if ($element.find(':input[name="locality"]').length && $element.find(':input[name="locality"]').val()) {
-							postal_address.locality = $.isArray($element.find(':input[name="locality"]').val()) ? $element.find(':input[name="locality"]').val().pop() : $element.find(':input[name="locality"]').val();
+							postal_address.locality = Array.isArray($element.find(':input[name="locality"]').val()) ? $element.find(':input[name="locality"]').val().pop() : $element.find(':input[name="locality"]').val();
 						}
 						
 						if ($element.find(':input[name="region"]').length && $element.find(':input[name="region"]').val()) {
-							postal_address.region = $.isArray($element.find(':input[name="region"]').val()) ? $element.find(':input[name="region"]').val().pop() : $element.find(':input[name="region"]').val();
+							postal_address.region = Array.isArray($element.find(':input[name="region"]').val()) ? $element.find(':input[name="region"]').val().pop() : $element.find(':input[name="region"]').val();
 						}
 						
 						if ($element.find(':input[name="postal_code"]').length && $element.find(':input[name="postal_code"]').val()) {
-							postal_address.postal_code = $.isArray($element.find(':input[name="postal_code"]').val()) ? $element.find(':input[name="postal_code"]').val().pop() : $element.find(':input[name="postal_code"]').val();
+							postal_address.postal_code = Array.isArray($element.find(':input[name="postal_code"]').val()) ? $element.find(':input[name="postal_code"]').val().pop() : $element.find(':input[name="postal_code"]').val();
 						}
 						
 						if ($element.find(':input[name="country"]').length && $element.find(':input[name="country"]').val()) {
-							postal_address.country = $.isArray($element.find(':input[name="country"]').val()) ? $element.find(':input[name="country"]').val().pop() : $element.find(':input[name="country"]').val();
+							postal_address.country = Array.isArray($element.find(':input[name="country"]').val()) ? $element.find(':input[name="country"]').val().pop() : $element.find(':input[name="country"]').val();
 						}
 						
 						postal_addresses = {
@@ -316,7 +316,7 @@
 					}
 					
 					if ($element.find(':input[name="phone_number"]').length && $element.find(':input[name="phone_number"]').val()) {
-						var phone_number_string = $.isArray($element.find(':input[name="phone_number"]').val()) ? $element.find(':input[name="phone_number"]').val().pop()	: $element.find(':input[name="phone_number"]').val();
+						var phone_number_string = Array.isArray($element.find(':input[name="phone_number"]').val()) ? $element.find(':input[name="phone_number"]').val().pop()	: $element.find(':input[name="phone_number"]').val();
 						
 						phone_number = {
 							"phone_numbers" : [ 
